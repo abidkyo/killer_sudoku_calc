@@ -22,7 +22,7 @@ sum = args.sum
 
 def summand_generator(sum):
     res = []
-    for i in range(1, 10):
+    for i in range(1, sum // 2 + 1):
         j = sum - i
 
         # make the tuple and append to res
@@ -31,8 +31,6 @@ def summand_generator(sum):
         if 1 <= j <= 9 and summands not in res:
             res.append(summands)
 
-    # filter duplicates
-    res = list(set(map(tuple, map(sorted, res))))
     return res
 
 
