@@ -11,6 +11,8 @@ Note: Summands is the number to be added
 """
 
 import argparse
+from summand_generator import summand_generator
+
 
 # Create argument parser
 parser = argparse.ArgumentParser(description="Summands Generator")
@@ -18,20 +20,6 @@ parser.add_argument("sum", type=int, help="Summation result")
 args = parser.parse_args()
 
 sum = args.sum
-
-
-def summand_generator(sum):
-    res = []
-    for i in range(1, sum // 2 + 1):
-        j = sum - i
-
-        # make the tuple and append to res
-        # if number between 1 and 9 and the tuple not yet in res
-        summands = (i, j)
-        if 1 <= j <= 9 and summands not in res:
-            res.append(summands)
-
-    return res
 
 
 print(summand_generator(sum))
