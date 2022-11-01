@@ -6,7 +6,7 @@ from summand_generator import summand_generator
 import unittest
 
 
-res_2numbers = [
+res_2numbers_repeating = [
     [],
     [],
     [(1, 1)],
@@ -30,7 +30,7 @@ res_2numbers = [
     [],
 ]
 
-res_3numbers = [
+res_3numbers_repeating = [
     [],
     [],
     [],
@@ -156,17 +156,17 @@ res_3numbers = [
 
 
 class TestSummand2Number(unittest.TestCase):
-    def test(self):
-        for i in range(0, len(res_2numbers)):
+    def test_repeating(self):
+        for i in range(0, len(res_2numbers_repeating)):
             res = summand_generator(i)
-            self.assertCountEqual(res, res_2numbers[i])
+            self.assertCountEqual(res, res_2numbers_repeating[i])
 
 
 class TestSummand3Number(unittest.TestCase):
-    def test(self):
-        for i in range(0, len(res_3numbers)):
+    def test_repeating(self):
+        for i in range(0, len(res_3numbers_repeating)):
             res = summand_generator(i, 3)
-            self.assertCountEqual(res, res_3numbers[i])
+            self.assertCountEqual(res, res_3numbers_repeating[i])
 
 
 if __name__ == "__main__":
