@@ -161,6 +161,12 @@ class TestSummand2Number(unittest.TestCase):
             res = summand_generator(i)
             self.assertCountEqual(res, res_2numbers_repeating[i])
 
+    def test_exclusion(self):
+        self.assertCountEqual(summand_generator(7, 2, [5]), [(1, 6), (3, 4)])
+        self.assertCountEqual(summand_generator(8, 2, [3]), [(1, 7), (2, 6), (4, 4)])
+        self.assertCountEqual(summand_generator(9, 2, [2]), [(1, 8), (3, 6), (4, 5)])
+        self.assertCountEqual(summand_generator(10, 2, [1]), [(2, 8), (3, 7), (4, 6), (5, 5)])
+
 
 class TestSummand3Number(unittest.TestCase):
     def test_repeating(self):
