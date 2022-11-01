@@ -2,7 +2,7 @@
 """Summand Generator Function."""
 
 
-def summand_generator(sum, len=2, excl=None):
+def summand_generator(sum, len=2, excl=None, unique=False):
     excl = [] if not excl else excl
 
     # Base case: length < 2.
@@ -19,7 +19,13 @@ def summand_generator(sum, len=2, excl=None):
         if i in excl:
             continue
 
-        tmp = summand_generator(sum - i, len - 1, excl)
+        if unique:
+            excl.append(i)
+
+        tmp = summand_generator(sum - i, len - 1, excl, unique)
+
+        if unique:
+            excl.pop()
 
         for j in tmp:
             # make the tuple and append to res
