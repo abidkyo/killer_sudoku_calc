@@ -17,10 +17,8 @@ def summand_generator(sum, len=2):
 
         for j in tmp:
             # make the tuple and append to res
-            # if the tuple not yet in res
             summands = (i,) + j
-            if summands not in res:
-                res.append(summands)
+            res.append(summands)
 
     # Filter is needed for len > 3 because duplicates are unavoidable
     res = list(set(map(tuple, map(sorted, res))))
