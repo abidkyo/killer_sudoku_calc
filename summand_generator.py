@@ -2,7 +2,7 @@
 """Summand Generator Function."""
 
 
-def summand_generator(sum):
+def summand_generator(sum, len=2):
     res = []
     for i in range(1, sum // 2 + 1):
         j = sum - i
