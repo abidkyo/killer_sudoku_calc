@@ -33,6 +33,6 @@ def summand_generator(sum, len=2, excl=None, unique=False):
             res.append(summands)
 
     # Filter is needed for len > 3 because duplicates are unavoidable
-    res = list(set(map(tuple, map(sorted, res))))
+    res = sorted(list(set(map(tuple, map(sorted, res)))))
 
     return res
