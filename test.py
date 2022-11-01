@@ -69,6 +69,21 @@ res_3numbers_repeating = [
     [(2, 4, 5), (2, 3, 6), (1, 1, 9), (1, 4, 6), (1, 3, 7), (2, 2, 7), (3, 3, 5), (1, 2, 8), (3, 4, 4), (1, 5, 5)],
 ]
 
+res_3numbers_unique = [
+    [],
+    [],
+    [],
+    [],
+    [],
+    [],
+    [(1, 2, 3)],
+    [(1, 2, 4)],
+    [(1, 3, 4), (1, 2, 5)],
+    [(1, 3, 5), (1, 2, 6), (2, 3, 4)],
+    [(1, 2, 7), (2, 3, 5), (1, 3, 6), (1, 4, 5)],
+    [(2, 4, 5), (2, 3, 6), (1, 4, 6), (1, 3, 7), (1, 2, 8)],
+]
+
 
 class TestSummand2Number(unittest.TestCase):
     def test_repeating(self):
@@ -93,6 +108,11 @@ class TestSummand3Number(unittest.TestCase):
         for i in range(0, len(res_3numbers_repeating)):
             res = summand_generator(i, 3)
             self.assertCountEqual(res, res_3numbers_repeating[i])
+
+    def test_unique(self):
+        for i in range(0, len(res_3numbers_unique)):
+            res = summand_generator(i, 3, unique=True)
+            self.assertCountEqual(res, res_3numbers_unique[i])
 
 
 if __name__ == "__main__":
