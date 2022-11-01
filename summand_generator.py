@@ -4,7 +4,7 @@
 
 def summand_generator(sum, len=2):
     res = []
-    for i in range(1, sum // 2 + 1):
+    for i in range(1, sum // len + 1):
         j = sum - i
 
         # make the tuple and append to res
