@@ -12,7 +12,7 @@ Note: Summands is the number to be added
 """
 
 import argparse
-from summand_generator import summand_generator
+from killer_sudoku_calc import killer_sudoku_calc
 
 
 # Create argument parser
@@ -29,4 +29,4 @@ exclude = args.exclude
 unique = args.unique
 
 
-print(summand_generator(sum, length, exclude, unique))
+print(killer_sudoku_calc(sum, length, exclude, unique))

@@ -2,7 +2,7 @@
 """Test for Summand Generator Function."""
 
 
-from summand_generator import summand_generator
+from killer_sudoku_calc import killer_sudoku_calc
 import unittest
 
 
@@ -88,30 +88,30 @@ res_3numbers_unique = [
 class TestSummand2Number(unittest.TestCase):
     def test_repeating(self):
         for i in range(0, len(res_2numbers_repeating)):
-            res = summand_generator(i)
+            res = killer_sudoku_calc(i)
             self.assertCountEqual(res, res_2numbers_repeating[i])
 
     def test_exclusion(self):
-        self.assertCountEqual(summand_generator(7, 2, [5]), [(1, 6), (3, 4)])
-        self.assertCountEqual(summand_generator(8, 2, [3]), [(1, 7), (2, 6), (4, 4)])
-        self.assertCountEqual(summand_generator(9, 2, [2]), [(1, 8), (3, 6), (4, 5)])
-        self.assertCountEqual(summand_generator(10, 2, [1]), [(2, 8), (3, 7), (4, 6), (5, 5)])
+        self.assertCountEqual(killer_sudoku_calc(7, 2, [5]), [(1, 6), (3, 4)])
+        self.assertCountEqual(killer_sudoku_calc(8, 2, [3]), [(1, 7), (2, 6), (4, 4)])
+        self.assertCountEqual(killer_sudoku_calc(9, 2, [2]), [(1, 8), (3, 6), (4, 5)])
+        self.assertCountEqual(killer_sudoku_calc(10, 2, [1]), [(2, 8), (3, 7), (4, 6), (5, 5)])
 
     def test_unique(self):
         for i in range(0, len(res_2numbers_unique)):
-            res = summand_generator(i, unique=True)
+            res = killer_sudoku_calc(i, unique=True)
             self.assertCountEqual(res, res_2numbers_unique[i])
 
 
 class TestSummand3Number(unittest.TestCase):
     def test_repeating(self):
         for i in range(0, len(res_3numbers_repeating)):
-            res = summand_generator(i, 3)
+            res = killer_sudoku_calc(i, 3)
             self.assertCountEqual(res, res_3numbers_repeating[i])
 
     def test_unique(self):
         for i in range(0, len(res_3numbers_unique)):
-            res = summand_generator(i, 3, unique=True)
+            res = killer_sudoku_calc(i, 3, unique=True)
             self.assertCountEqual(res, res_3numbers_unique[i])
 
 

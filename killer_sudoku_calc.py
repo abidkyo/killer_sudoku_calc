@@ -2,7 +2,7 @@
 """Summand Generator Function."""
 
 
-def summand_generator(sum, len=2, excl=None, unique=False):
+def killer_sudoku_calc(sum, len=2, excl=None, unique=False):
     excl = [] if not excl else excl
 
     # Base case: length < 2.
@@ -22,7 +22,7 @@ def summand_generator(sum, len=2, excl=None, unique=False):
         if unique:
             excl.append(i)
 
-        tmp = summand_generator(sum - i, len - 1, excl, unique)
+        tmp = killer_sudoku_calc(sum - i, len - 1, excl, unique)
 
         if unique:
             excl.pop()
