@@ -12,6 +12,8 @@ Note: Summands is the number to be added
 """
 
 import argparse
+from collections import Counter
+
 from killer_sudoku_calc import killer_sudoku_calc
 
 
@@ -29,4 +31,23 @@ exclude = args.exclude
 include = args.include
 
 
-print(killer_sudoku_calc(sum, length=length, excl=exclude, incl=include))
+res = killer_sudoku_calc(sum, length=length, excl=exclude, incl=include)
+counter = Counter(sorted(x for t in res for x in t))
+
+unique = []
+common = []
+for k, v in counter.items():
+    if v == len(res):
+        common.append(k)
+
+    if v == 1:
+        unique.append(k)
+
+
+print(f"No. of Combinations : {len(res)}")
+print(f"Combinations        : {res}")
+print()
+print(f"Digits              : {list(counter.keys())}")
+print()
+print(f"Unique              : {unique}")
+print(f"Common              : {common}")
