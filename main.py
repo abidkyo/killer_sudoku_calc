@@ -29,4 +29,4 @@ exclude = args.exclude
 include = args.include
 
 
-print(killer_sudoku_calc(sum, length, exclude, include))
+print(killer_sudoku_calc(sum, length=length, excl=exclude, incl=include))

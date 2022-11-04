@@ -37,7 +37,7 @@ def killer_sudoku_calc(sum, length=2, excl=None, incl=None):
         # add number to exlcude list
         excl.append(i)
 
-        tmp = killer_sudoku_calc(sum - i, length - 1, excl)
+        tmp = killer_sudoku_calc(sum - i, length=length - 1, excl=excl)
 
         # remove recently added number
         excl.pop()
