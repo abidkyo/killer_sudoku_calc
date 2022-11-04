@@ -1,5 +1,15 @@
 #! /usr/bin/env python3
-"""Summand Generator Function."""
+"""
+Killer Sudoku Calculator Function.
+
+Generate summands based on their sum with single-digit number only.
+
+Feature:
+- unlimited length of summands
+- exclusion of digits
+
+Note: Summands is the number to be added
+"""
 
 
 def killer_sudoku_calc(sum, len=2, excl=None, unique=False):
