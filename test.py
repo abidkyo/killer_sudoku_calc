@@ -65,6 +65,11 @@ class TestSummand3Number(unittest.TestCase):
             res = killer_sudoku_calc(i, 3)
             self.assertCountEqual(res, res_3numbers[i])
 
+    def test_inclusion(self):
+        self.assertCountEqual(killer_sudoku_calc(9, 3, incl=[2]), [(1, 2, 6), (2, 3, 4)])
+        self.assertCountEqual(killer_sudoku_calc(10, 3, incl=[3]), [(2, 3, 5), (1, 3, 6)])
+        self.assertCountEqual(killer_sudoku_calc(11, 3, incl=[8]), [(1, 2, 8)])
+
 
 if __name__ == "__main__":
     unittest.main()

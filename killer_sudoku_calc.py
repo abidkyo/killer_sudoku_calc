@@ -6,12 +6,13 @@ Generate summands based on their sum with single-digit number only.
 
 Feature:
 - exclusion of digits
+- inclusion of digits
 
 Note: Summands is the number to be added
 """
 
 
-def killer_sudoku_calc(sum, length=2, excl=None):
+def killer_sudoku_calc(sum, length=2, excl=None, incl=None):
     if length > 9:
         return []
 
@@ -25,8 +26,10 @@ def killer_sudoku_calc(sum, length=2, excl=None):
         else:
             return []
 
+    incl = range(1, sum // length + 1) if not incl else incl
+
     res = []
-    for i in range(1, sum // length + 1):
+    for i in incl:
         # skip number in exclude
         if i in excl:
             continue
