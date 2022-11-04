@@ -12,11 +12,11 @@ Note: Summands is the number to be added
 """
 
 
-def killer_sudoku_calc(sum, len=2, excl=None):
+def killer_sudoku_calc(sum, length=2, excl=None):
     excl = [] if not excl else excl
 
     # Base case: length < 2.
-    if len < 2:
+    if length < 2:
         # Check for single-digit condition and excluded digit here.
         if 1 <= sum <= 9 and sum not in excl:
             return [(sum,)]
@@ -24,7 +24,7 @@ def killer_sudoku_calc(sum, len=2, excl=None):
             return []
 
     res = []
-    for i in range(1, sum // len + 1):
+    for i in range(1, sum // length + 1):
         # skip number in exclude
         if i in excl:
             continue
@@ -32,7 +32,7 @@ def killer_sudoku_calc(sum, len=2, excl=None):
         # add number to exlcude list
         excl.append(i)
 
-        tmp = killer_sudoku_calc(sum - i, len - 1, excl)
+        tmp = killer_sudoku_calc(sum - i, length - 1, excl)
 
         # remove recently added number
         excl.pop()
