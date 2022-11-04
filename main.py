@@ -20,13 +20,11 @@ parser = argparse.ArgumentParser(description="Killer Sudoku Calculator")
 parser.add_argument("sum", type=int, help="Sum of the cage")
 parser.add_argument("-l", "--length", default=2, type=int, help="Size of the cage")
 parser.add_argument("-e", "--exclude", default=None, nargs="+", type=int, help="Digits to exclude")
-parser.add_argument("-u", "--unique", action="store_true", help="Unique digit (no repetition)")
 args = parser.parse_args()
 
 sum = args.sum
 length = args.length
 exclude = args.exclude
-unique = args.unique
 
 
-print(killer_sudoku_calc(sum, length, exclude, unique))
+print(killer_sudoku_calc(sum, length, exclude))

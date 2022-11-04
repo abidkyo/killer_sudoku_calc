@@ -12,7 +12,7 @@ Note: Summands is the number to be added
 """
 
 
-def killer_sudoku_calc(sum, len=2, excl=None, unique=False):
+def killer_sudoku_calc(sum, len=2, excl=None):
     excl = [] if not excl else excl
 
     # Base case: length < 2.
@@ -29,13 +29,13 @@ def killer_sudoku_calc(sum, len=2, excl=None, unique=False):
         if i in excl:
             continue
 
-        if unique:
-            excl.append(i)
+        # add number to exlcude list
+        excl.append(i)
 
-        tmp = killer_sudoku_calc(sum - i, len - 1, excl, unique)
+        tmp = killer_sudoku_calc(sum - i, len - 1, excl)
 
-        if unique:
-            excl.pop()
+        # remove recently added number
+        excl.pop()
 
         for j in tmp:
             # make the tuple and append to res
