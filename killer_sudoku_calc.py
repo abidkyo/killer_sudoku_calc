@@ -5,7 +5,6 @@ Killer Sudoku Calculator Function.
 Generate summands based on their sum with single-digit number only.
 
 Feature:
-- unlimited length of summands
 - exclusion of digits
 
 Note: Summands is the number to be added
@@ -13,6 +12,9 @@ Note: Summands is the number to be added
 
 
 def killer_sudoku_calc(sum, length=2, excl=None):
+    if length > 9:
+        return []
+
     excl = [] if not excl else excl
 
     # Base case: length < 2.
